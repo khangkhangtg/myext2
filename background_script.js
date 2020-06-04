@@ -5,18 +5,18 @@ class Timer {
         this.timer = 0;
     }
 
-    countSecond() {
+    countSecond () {
         this.timer++;
     }
 
     getTimer() {
-        console.log(this.timer);
+        // console.log(this.timer);
         return this.timer;
         // return Math.ceil(this.timer / 60);
     }
 
     start() {
-        this.count = setInterval(this.countSecond, 1000);
+        this.count = setInterval(this.countSecond.bind(this), 1000);
     }
 
     pause() {
@@ -35,7 +35,7 @@ function initTabs(tabs) {
         tab.timer = new Timer();
         tab.timer.start();
         setInterval(() => {
-            console.log(tab.timer.getTimer);
+            console.log(tab.timer.getTimer());
         }, 1000);
     }
 }
